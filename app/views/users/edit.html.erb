@@ -1,0 +1,19 @@
+<h1>Welcome</h1>welcome <%= @user.name %>
+
+<% if @user.errors.full_messages.any? %>
+  <% @user.errors.full_messages.each do |error_message| %>
+    <div style="color: red;">
+      <%= error_message if @user.errors.full_messages.first == error_message %> <br />
+    </div>
+  <% end %>
+<% end %>
+<h1>Generate key</h1><%= form_with url:user_edit_path(user_id:@user.id) , method: :post  do |f|%>
+  <div style="width: 600px">
+    <%= f.label :key%><br>  <%= f.text_field :name , :value =>  @user.private_api_key_bidx ,:style => "width: 600px" ,disabled:true%><br>
+  </div>
+
+
+  <div style="margin-top: 2px">
+    <%= f.submit  "Generate" %>
+  </div>
+<%end%>

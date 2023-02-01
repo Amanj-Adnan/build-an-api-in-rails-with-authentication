@@ -1,0 +1,14 @@
+<h1>Welcome</h1>welcome.index.erb
+<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Sign Up", '/users/new', method: :get%>
+
+
+<h1>Sign Up</h1><%= form_with url:developer_users_new_path , method: :post  do |f|%>
+  <%= f.label :name%><br>  <%= f.text_field :name%><br>
+  <%= f.label :email%><br>  <%= f.text_field :email%><br>
+  <br>  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <br>  <%= f.label :password_confirmation%><br>
+  <%= f.password_field :password_confirmation%><br>
+  <%= f.submit %>
+<%end%>
